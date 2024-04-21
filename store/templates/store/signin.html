@@ -1,0 +1,40 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<header>
+
+</header>
+
+<body>
+    <section class="d-flex justify-content-center">
+        <div class="col-lg-4">
+            <h5>Signin</h5>
+            {% if messages %}
+            {% for message in messages %}
+            <p style="color: red;" class="mb-3">{{ message }}</p>
+            {% endfor %}
+            {% endif %}
+            <form class="box-element product" action="/signin" method="post">
+                {% csrf_token %}
+                <h6><label for="">Username</label></h6>
+                <input type="text" id="username" name="username" placeholder="username" required>
+                <br>
+                <br>
+                <h6><label for="">Password</label></h6>
+                <input type="password" id="pass1" name="pass1" placeholder="password" required>
+                <br>
+                <br>
+                <button class="btn btn-outline-info" type="submit">Sign In</button>
+            </form>
+            <p>
+            <h6>or create an account</h6>
+            <a href="/signup" class="btn btn-outline-info">signup</a>
+            </p>
+        </div>
+    </section>
+</body>
+
+</html>
+{% endblock content %}
